@@ -2,7 +2,7 @@ var express = require('express');
 var path = require('path');
 var router = express.Router();
 var pg = require('pg');
-var connectionString = require(path.join(__dirname, '../', 'config'));
+var connectionString = require(path.join(__dirname, '../', '../', 'config'));
 
 router.post('/', function(req, res) {
 
