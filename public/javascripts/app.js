@@ -16,6 +16,19 @@ angular.module('nodeTodo', [])
         });
     };
 
+    // Create a new todo
+    $scope.createTodo = function(todoID) {
+      $http.post('/api/v1/todos', $scope.formData)
+        .success(function(data) {
+          $scope.formData = {};
+          $scope.todoData = data;
+          console.log(data);
+        })
+        .error(function(error) {
+          console.log('Error: ' + error);
+        });
+    };
+
     // Get all todos
     $http.get('/api/v1/todos')
       .success(function(data) {
